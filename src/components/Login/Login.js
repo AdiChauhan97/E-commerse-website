@@ -25,7 +25,7 @@ function Login() {
         createUserWithEmailAndPassword(auth, email, password)
             .then(auth => {
                 if (auth) {
-                    history.push('/')
+                    history('/')
                 }
             })
             .catch(error => alert(error.message))

@@ -8,6 +8,7 @@ import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import { Check } from '@material-ui/icons';
 import Checkout from './components/Checkout/Checkout';
+import Payment from './components/Payment/Payment';
 
 function App() {
   const [{}, dispatch] = useStateValue();
@@ -41,6 +42,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/checkout" element={<><Header /><Checkout /></>} />
+          <Route path="/payment" element={<><Header /><Payment /></>} />
           <Route path="/" element={<><Header /><Home /></>} />
         </Routes>
       </Router>
