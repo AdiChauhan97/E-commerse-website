@@ -9,6 +9,12 @@ import { useStateValue } from "./StateProvider";
 import { Check } from '@material-ui/icons';
 import Checkout from './components/Checkout/Checkout';
 import Payment from './components/Payment/Payment';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements, elements } from '@stripe/react-stripe-js';
+
+const promise = loadStripe(
+  "pk_test_51K4dslDNHFgI9Z1jiEiBX63KmBV32vbCiQWHRpFQUGPvvVf0wfmmVFCTCR8oXQyiuhJWYCYEbTgE4iTpoYJozaOE00XvapIkr3"
+);
 
 function App() {
   const [{}, dispatch] = useStateValue();
@@ -42,7 +48,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/checkout" element={<><Header /><Checkout /></>} />
-          <Route path="/payment" element={<><Header /><Payment /></>} />
+          <Route path="/payment" element={<><Header /><Elements stripe={promise}><Payment /></Elements></>} />
           <Route path="/" element={<><Header /><Home /></>} />
         </Routes>
       </Router>
