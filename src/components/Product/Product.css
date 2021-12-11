@@ -21,6 +21,7 @@
     width: 100%;
     object-fit: contain;
     margin-bottom: 15px;
+    padding-top: 30px;
 }
   
 .product > button {
